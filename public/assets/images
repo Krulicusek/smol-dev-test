@@ -1,0 +1,1 @@
+The directory `public/assets/images` is meant to store image files for the game. As such, it doesn't contain any code. Instead, it would contain image files like `tower.png`, `minion.png`, `background.png`, etc. These files would be referenced in the game's code, but the directory itself doesn't contain any code.

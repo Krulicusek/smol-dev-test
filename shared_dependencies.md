@@ -1,29 +1,23 @@
-1. Exported Variables:
-    - `snake`: The object representing the snake in the game.
-    - `score`: The current score of the game.
-    - `gameState`: The current state of the game (e.g., "start", "playing", "game over").
+Shared Dependencies:
 
-2. Data Schemas:
-    - `Player`: Schema for player data, including player ID and score.
-    - `Game`: Schema for game data, including game state, snake data, and score.
+1. **Exported Variables:**
+   - `gameState`: This variable will be exported from `game.js` and imported into `index.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, `userInterface.js`, and `testing.js`. It represents the current state of the game.
 
-3. ID Names of DOM Elements:
-    - `game-board`: The main game area where the snake moves.
-    - `score-board`: The area where the score is displayed.
-    - `start-button`: The button to start the game.
-    - `restart-button`: The button to restart the game after game over.
+2. **Data Schemas:**
+   - `TowerSchema`: This schema will be used in `game.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to define the structure of a tower.
+   - `MinionSchema`: This schema will be used in `game.js`, `mapView.js`, `gameMechanics.js`, and `userInterface.js` to define the structure of a minion.
 
-4. Message Names:
-    - `playerJoined`: Message sent when a new player joins the game.
-    - `gameStart`: Message sent when the game starts.
-    - `gameOver`: Message sent when the game is over.
-    - `scoreUpdate`: Message sent when the score is updated.
+3. **DOM Element IDs:**
+   - `#mapView`: This ID will be used in `index.js`, `mapView.js`, `gameMechanics.js`, and `userInterface.js` to manipulate the map view.
+   - `#shopView`: This ID will be used in `index.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to manipulate the shop view.
+   - `#hud`: This ID will be used in `index.js`, `userInterface.js`, and `gameMechanics.js` to manipulate the HUD.
 
-5. Function Names:
-    - `startGame()`: Function to start the game.
-    - `endGame()`: Function to end the game.
-    - `updateScore()`: Function to update the score.
-    - `moveSnake()`: Function to move the snake.
-    - `addSegment()`: Function to add a segment to the snake.
-    - `playerJoin()`: Function to handle a player joining the game.
-    - `sendAlert()`: Function to send alerts to the player.
+4. **Message Names:**
+   - `gameStart`: This message will be used in `index.js`, `game.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to signal the start of the game.
+   - `gameOver`: This message will be used in `index.js`, `game.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to signal the end of the game.
+
+5. **Function Names:**
+   - `startGame()`: This function will be defined in `game.js` and called in `index.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js`.
+   - `endGame()`: This function will be defined in `game.js` and called in `index.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js`.
+   - `spawnMinion()`: This function will be defined in `gameMechanics.js` and called in `game.js`, `mapView.js`, and `userInterface.js`.
+   - `upgradeTower()`: This function will be defined in `gameMechanics.js` and called in `game.js`, `mapView.js`, `shopView.js`, and `userInterface.js`.
