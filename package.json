@@ -1,31 +1,15 @@
 {
   "name": "tower-defense-game",
   "version": "1.0.0",
-  "description": "A tower defense game built with npm",
+  "description": "A tower defense game where you can attack and defend at the same time.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "node src/testing.js"
+    "start": "react-scripts start",
+    "install": "npm install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yourusername/tower-defense-game.git"
-  },
-  "keywords": [
-    "game",
-    "tower defense",
-    "npm"
-  ],
-  "author": "Your Name",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yourusername/tower-defense-game/issues"
-  },
-  "homepage": "https://github.com/yourusername/tower-defense-game#readme",
   "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   }
 }

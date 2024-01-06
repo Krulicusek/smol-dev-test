@@ -1,23 +1,38 @@
-Shared Dependencies:
+1. Dependencies: 
+   - "react": For building the user interface.
+   - "react-dom": For manipulating DOM in the application.
+   - "react-router-dom": For routing and navigation within the application.
 
-1. **Exported Variables:**
-   - `gameState`: This variable will be exported from `game.js` and imported into `index.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, `userInterface.js`, and `testing.js`. It represents the current state of the game.
+2. Exported Variables:
+   - "Game" from "src/game.js": The main game component.
+   - "Tower" from "src/tower.js": The tower component.
+   - "Shop" from "src/shop.js": The shop component.
+   - "Minion" from "src/minion.js": The minion component.
+   - "Upgrade" from "src/upgrade.js": The upgrade component.
 
-2. **Data Schemas:**
-   - `TowerSchema`: This schema will be used in `game.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to define the structure of a tower.
-   - `MinionSchema`: This schema will be used in `game.js`, `mapView.js`, `gameMechanics.js`, and `userInterface.js` to define the structure of a minion.
+3. Data Schemas:
+   - "Tower": Contains properties like id, position, attackSpeed, armor, magicResist.
+   - "Minion": Contains properties like id, strength, speed, health.
+   - "Shop": Contains properties like id, items, augments.
+   - "Upgrade": Contains properties like id, type, value.
 
-3. **DOM Element IDs:**
-   - `#mapView`: This ID will be used in `index.js`, `mapView.js`, `gameMechanics.js`, and `userInterface.js` to manipulate the map view.
-   - `#shopView`: This ID will be used in `index.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to manipulate the shop view.
-   - `#hud`: This ID will be used in `index.js`, `userInterface.js`, and `gameMechanics.js` to manipulate the HUD.
+4. ID Names of DOM Elements:
+   - "game-container": The main container for the game.
+   - "tower-container": The container for the towers.
+   - "shop-container": The container for the shop.
+   - "minion-container": The container for the minions.
+   - "upgrade-container": The container for the upgrades.
 
-4. **Message Names:**
-   - `gameStart`: This message will be used in `index.js`, `game.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to signal the start of the game.
-   - `gameOver`: This message will be used in `index.js`, `game.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js` to signal the end of the game.
+5. Message Names:
+   - "GAME_START": To start the game.
+   - "GAME_END": To end the game.
+   - "SPAWN_MINION": To spawn a new minion.
+   - "PURCHASE_ITEM": To purchase an item from the shop.
+   - "UPGRADE_TOWER": To upgrade a tower.
 
-5. **Function Names:**
-   - `startGame()`: This function will be defined in `game.js` and called in `index.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js`.
-   - `endGame()`: This function will be defined in `game.js` and called in `index.js`, `mapView.js`, `shopView.js`, `gameMechanics.js`, and `userInterface.js`.
-   - `spawnMinion()`: This function will be defined in `gameMechanics.js` and called in `game.js`, `mapView.js`, and `userInterface.js`.
-   - `upgradeTower()`: This function will be defined in `gameMechanics.js` and called in `game.js`, `mapView.js`, `shopView.js`, and `userInterface.js`.
+6. Function Names:
+   - "startGame": To start the game.
+   - "endGame": To end the game.
+   - "spawnMinion": To spawn a new minion.
+   - "purchaseItem": To purchase an item from the shop.
+   - "upgradeTower": To upgrade a tower.
