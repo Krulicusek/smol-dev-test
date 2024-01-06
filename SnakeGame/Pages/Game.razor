@@ -1,0 +1,32 @@
+@page "/game"
+@using SnakeGame.Services
+@using SnakeGame.Models
+@inject GameService GameService
+
+<h1>Snake Game</h1>
+
+<div id="game-board" style="position: relative; height: 600px; width: 800px;">
+    @foreach (var part in GameService.Snake.Body)
+    {
+        <div style="position: absolute; top: @part.Y; left: @part.X; height: 10px; width: 10px; background-color: green;"></div>
+    }
+    <div style="position: absolute; top: @GameService.Food.Y; left: @GameService.Food.X; height: 10px; width: 10px; background-color: red;"></div>
+</div>
+
+<button @onclick="GameService.StartGame">Start Game</button>
+<button @onclick="GameService.PauseGame">Pause Game</button>
+
+<p>Score: @GameService.Score</p>
+
+@code {
+    protected override void OnInitialized()
+    {
+        GameService.GameOver += GameOver;
+        base.OnInitialized();
+    }
+
+    private void GameOver()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+}
