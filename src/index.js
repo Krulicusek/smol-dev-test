@@ -1,22 +1,26 @@
-```javascript
-import { gameState } from './game.js';
-import { startGame, endGame } from './gameMechanics.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const mapView = document.querySelector('#mapView');
-  const shopView = document.querySelector('#shopView');
-  const hud = document.querySelector('#hud');
+import Game from './game.js';
+import Tower from './tower.js';
+import Shop from './shop.js';
+import Minion from './minion.js';
+import Upgrade from './upgrade.js';
 
-  // Listen for game start and end events
-  document.addEventListener('gameStart', startGame);
-  document.addEventListener('gameOver', endGame);
+import './styles.css';
 
-  // Initialize game state
-  gameState.init();
-
-  // Render initial game state
-  mapView.render(gameState);
-  shopView.render(gameState);
-  hud.render(gameState);
-});
-```
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Game} />
+        <Route path="/tower" component={Tower} />
+        <Route path="/shop" component={Shop} />
+        <Route path="/minion" component={Minion} />
+        <Route path="/upgrade" component={Upgrade} />
+      </Switch>
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+);

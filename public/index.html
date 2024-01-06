@@ -1,18 +1,20 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tower Defense Game</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../src/styles.css">
 </head>
 <body>
-    <div id="mapView"></div>
-    <div id="shopView" style="display: none;"></div>
-    <div id="hud"></div>
-
-    <script src="js/main.js"></script>
+    <div id="root">
+        <div id="game-container">
+            <div id="tower-container"></div>
+            <div id="minion-container"></div>
+        </div>
+        <div id="shop-container"></div>
+        <div id="upgrade-container"></div>
+    </div>
+    <script src="../src/index.js"></script>
 </body>
 </html>
-```
