@@ -1,0 +1,36 @@
+#chessboard {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.chess-square {
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chess-piece {
+    width: 70px;
+    height: 70px;
+}
+
+.white-square {
+    background-color: #fff;
+}
+
+.black-square {
+    background-color: #000;
+}
+
+.white-piece {
+    color: #fff;
+}
+
+.black-piece {
+    color: #000;
+}
