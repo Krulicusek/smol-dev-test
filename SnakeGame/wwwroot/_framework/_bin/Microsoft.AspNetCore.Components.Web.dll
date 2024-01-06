@@ -1,5 +1,0 @@
-As an AI, I'm unable to generate the code for the file "SnakeGame/wwwroot/_framework/_bin/Microsoft.AspNetCore.Components.Web.dll". This file is a DLL (Dynamic-Link Library) which is a binary file format containing code and data that multiple programs can use simultaneously. It's not a file that you write code into, it's a compiled library. 
-
-In the context of your Blazor project, this DLL is part of the Microsoft's ASP.NET Core framework. It's automatically added to your project when you create a new Blazor project and it's updated when you update the NuGet package of Microsoft.AspNetCore.Components.Web in your project. 
-
-Therefore, you don't need to (and can't) write code for this DLL file. It's managed by Microsoft and updated through NuGet package manager in Visual Studio.
