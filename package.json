@@ -1,0 +1,31 @@
+{
+  "name": "tower-defense-game",
+  "version": "1.0.0",
+  "description": "A tower defense game built with npm",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/testing.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/tower-defense-game.git"
+  },
+  "keywords": [
+    "game",
+    "tower defense",
+    "npm"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourusername/tower-defense-game/issues"
+  },
+  "homepage": "https://github.com/yourusername/tower-defense-game#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
