@@ -1,38 +1,35 @@
-1. Dependencies: 
-   - "react": For building the user interface.
-   - "react-dom": For manipulating DOM in the application.
-   - "react-router-dom": For routing and navigation within the application.
+Shared Dependencies:
 
-2. Exported Variables:
-   - "Game" from "src/game.js": The main game component.
-   - "Tower" from "src/tower.js": The tower component.
-   - "Shop" from "src/shop.js": The shop component.
-   - "Minion" from "src/minion.js": The minion component.
-   - "Upgrade" from "src/upgrade.js": The upgrade component.
+1. **Variables:**
+   - `game_state`: A variable that holds the current state of the game, including map layout, base status, tower placements, unit waves, resource status, champion status, fog of war status, and augment status.
+   - `player_resources`: A variable that tracks the current resources of the player, used across resource management, tower placement, unit wave spawning, and champion abilities.
+   - `augments`: A variable that holds the current augments of the player, used across base building, unit waves, resource management, tower placement, champion control, and fog of war.
 
-3. Data Schemas:
-   - "Tower": Contains properties like id, position, attackSpeed, armor, magicResist.
-   - "Minion": Contains properties like id, strength, speed, health.
-   - "Shop": Contains properties like id, items, augments.
-   - "Upgrade": Contains properties like id, type, value.
+2. **Data Schemas:**
+   - `MapSchema`: A schema that defines the structure of the map, used in map.py and game.py.
+   - `BaseSchema`: A schema that defines the structure of a base, used in base.py and game.py.
+   - `TowerSchema`: A schema that defines the structure of a tower, used in tower.py and game.py.
+   - `UnitSchema`: A schema that defines the structure of a unit, used in unit.py and game.py.
+   - `ResourceSchema`: A schema that defines the structure of resources, used in resource.py and game.py.
+   - `ChampionSchema`: A schema that defines the structure of the champion, used in champion.py and game.py.
+   - `AugmentSchema`: A schema that defines the structure of an augment, used in augment_system.py and game.py.
 
-4. ID Names of DOM Elements:
-   - "game-container": The main container for the game.
-   - "tower-container": The container for the towers.
-   - "shop-container": The container for the shop.
-   - "minion-container": The container for the minions.
-   - "upgrade-container": The container for the upgrades.
+3. **DOM Element IDs:**
+   - `#map`: The ID for the map element, used in map.py and main.py.
+   - `#base`: The ID for the base element, used in base.py and main.py.
+   - `#tower`: The ID for the tower element, used in tower.py and main.py.
+   - `#unit`: The ID for the unit element, used in unit.py and main.py.
+   - `#resource`: The ID for the resource element, used in resource.py and main.py.
+   - `#champion`: The ID for the champion element, used in champion.py and main.py.
+   - `#augment`: The ID for the augment element, used in augment_system.py and main.py.
 
-5. Message Names:
-   - "GAME_START": To start the game.
-   - "GAME_END": To end the game.
-   - "SPAWN_MINION": To spawn a new minion.
-   - "PURCHASE_ITEM": To purchase an item from the shop.
-   - "UPGRADE_TOWER": To upgrade a tower.
+4. **Message Names:**
+   - `game_update`: A message name for updates to the game state, used across all game mechanic files and main.py.
+   - `resource_update`: A message name for updates to the player's resources, used in resource.py and main.py.
+   - `augment_update`: A message name for updates to the player's augments, used in augment_system.py and main.py.
 
-6. Function Names:
-   - "startGame": To start the game.
-   - "endGame": To end the game.
-   - "spawnMinion": To spawn a new minion.
-   - "purchaseItem": To purchase an item from the shop.
-   - "upgradeTower": To upgrade a tower.
+5. **Function Names:**
+   - `update_game_state()`: A function that updates the game state, used across all game mechanic files and main.py.
+   - `update_resources()`: A function that updates the player's resources, used in resource.py and main.py.
+   - `update_augments()`: A function that updates the player's augments, used in augment_system.py and main.py.
+   - `run_tests()`: A function that runs the automated tests, used in all test files and main.py.
