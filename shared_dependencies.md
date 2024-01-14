@@ -1,38 +1,21 @@
-1. Dependencies: 
-   - "react": For building the user interface.
-   - "react-dom": For manipulating DOM in the application.
-   - "react-router-dom": For routing and navigation within the application.
+Shared Dependencies:
 
-2. Exported Variables:
-   - "Game" from "src/game.js": The main game component.
-   - "Tower" from "src/tower.js": The tower component.
-   - "Shop" from "src/shop.js": The shop component.
-   - "Minion" from "src/minion.js": The minion component.
-   - "Upgrade" from "src/upgrade.js": The upgrade component.
+1. **GameMain.cs**: This is the main entry point of the game. It will use all the managers, entities, and UI classes.
 
-3. Data Schemas:
-   - "Tower": Contains properties like id, position, attackSpeed, armor, magicResist.
-   - "Minion": Contains properties like id, strength, speed, health.
-   - "Shop": Contains properties like id, items, augments.
-   - "Upgrade": Contains properties like id, type, value.
+2. **Entities**: The entities (Tower, Minion, Base, Jungle, Lane, Player, AI) will share common properties and methods such as Position, Health, Attack, Defend, Move, etc. They will also share the textures and sounds from the GameContent folder.
 
-4. ID Names of DOM Elements:
-   - "game-container": The main container for the game.
-   - "tower-container": The container for the towers.
-   - "shop-container": The container for the shop.
-   - "minion-container": The container for the minions.
-   - "upgrade-container": The container for the upgrades.
+3. **Managers**: The managers (GameManager, UpgradeManager, SpawnManager, AIManager, SpeedManager) will share common methods such as Initialize, Update, and Draw. They will also interact with the entities and UI classes.
 
-5. Message Names:
-   - "GAME_START": To start the game.
-   - "GAME_END": To end the game.
-   - "SPAWN_MINION": To spawn a new minion.
-   - "PURCHASE_ITEM": To purchase an item from the shop.
-   - "UPGRADE_TOWER": To upgrade a tower.
+4. **UI**: The UI classes (UpgradeMenu, SpeedMenu, GameUI) will share common methods such as Show, Hide, and Update. They will also interact with the managers and entities.
 
-6. Function Names:
-   - "startGame": To start the game.
-   - "endGame": To end the game.
-   - "spawnMinion": To spawn a new minion.
-   - "purchaseItem": To purchase an item from the shop.
-   - "upgradeTower": To upgrade a tower.
+5. **GameContent**: The textures and sounds in the GameContent folder will be used by the entities and UI classes. The names of these files will be shared as string constants in the code.
+
+6. **Message Names**: Messages like "Upgrade", "Spawn", "FastForward", etc. will be shared between the managers and UI classes.
+
+7. **Function Names**: Function names like "UpgradeTower", "SpawnMinion", "MovePlayer", "AttackAI", etc. will be shared between the entities, managers, and UI classes.
+
+8. **Data Schemas**: The data schemas for the entities (like the properties of a tower or a minion) will be shared between the entities, managers, and UI classes.
+
+9. **Exported Variables**: Variables like the player's score, the game state, the current speed, etc. will be exported from the GameMain class and shared between the managers and UI classes.
+
+10. **ID Names**: ID names like "tower", "minion", "base", "jungle", "lane", etc. will be shared between the entities, managers, and UI classes.
