@@ -1,21 +1,14 @@
 Shared Dependencies:
 
-1. **GameMain.cs**: This is the main entry point of the game. It will use all the managers, entities, and UI classes.
-
-2. **Entities**: The entities (Tower, Minion, Base, Jungle, Lane, Player, AI) will share common properties and methods such as Position, Health, Attack, Defend, Move, etc. They will also share the textures and sounds from the GameContent folder.
-
-3. **Managers**: The managers (GameManager, UpgradeManager, SpawnManager, AIManager, SpeedManager) will share common methods such as Initialize, Update, and Draw. They will also interact with the entities and UI classes.
-
-4. **UI**: The UI classes (UpgradeMenu, SpeedMenu, GameUI) will share common methods such as Show, Hide, and Update. They will also interact with the managers and entities.
-
-5. **GameContent**: The textures and sounds in the GameContent folder will be used by the entities and UI classes. The names of these files will be shared as string constants in the code.
-
-6. **Message Names**: Messages like "Upgrade", "Spawn", "FastForward", etc. will be shared between the managers and UI classes.
-
-7. **Function Names**: Function names like "UpgradeTower", "SpawnMinion", "MovePlayer", "AttackAI", etc. will be shared between the entities, managers, and UI classes.
-
-8. **Data Schemas**: The data schemas for the entities (like the properties of a tower or a minion) will be shared between the entities, managers, and UI classes.
-
-9. **Exported Variables**: Variables like the player's score, the game state, the current speed, etc. will be exported from the GameMain class and shared between the managers and UI classes.
-
-10. **ID Names**: ID names like "tower", "minion", "base", "jungle", "lane", etc. will be shared between the entities, managers, and UI classes.
+1. "Monogame.Framework" - This is the main game development framework used across all the files.
+2. "Game1" - This is the main game class that is shared across all the components. It contains the game loop and is responsible for initializing and updating all the game components.
+3. "Player" - This class is shared across the "Game1", "Tower", "Minion", "UpgradeSystem", and "SpawnSystem" files. It represents the player and contains information about the player's state and actions.
+4. "EnemyAI" - This class is shared across the "Game1", "Tower", "Minion", and "GameMap" files. It represents the AI enemy and contains information about the enemy's state and actions.
+5. "Tower" - This class is shared across the "Game1", "Player", "EnemyAI", "UpgradeSystem", and "GameMap" files. It represents the towers in the game.
+6. "Minion" - This class is shared across the "Game1", "Player", "EnemyAI", "UpgradeSystem", "SpawnSystem", and "GameMap" files. It represents the minions in the game.
+7. "GameMap" - This class is shared across the "Game1", "Player", "EnemyAI", "Tower", and "Minion" files. It represents the game map.
+8. "UpgradeSystem" - This class is shared across the "Game1", "Player", "Tower", and "Minion" files. It is responsible for handling the upgrades in the game.
+9. "SpawnSystem" - This class is shared across the "Game1", "Player", "EnemyAI", "Tower", and "Minion" files. It is responsible for handling the spawning of minions in the game.
+10. "SpeedControl" - This class is shared across the "Game1", "Player", "EnemyAI", "Tower", "Minion", "UpgradeSystem", and "SpawnSystem" files. It is responsible for controlling the game speed.
+11. "Content" - This is the content pipeline used across all the files for loading game assets.
+12. "Tower.png", "Minion.png", "GameMap.png" - These are the image assets used in the "Game1", "Tower", "Minion", and "GameMap" files.
