@@ -1,54 +1,37 @@
-using System;
+```csharp
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using TowerDefenseGame.Components;
 
-namespace TowerDefenseGame
+namespace TowerDefenseGame.Components
 {
     public class Tower
     {
-        public Vector2 Position { get; set; }
-        public int Level { get; set; }
-        public Texture2D Texture { get; private set; }
-
         private Game1 _game;
-        private Player _player;
-        private EnemyAI _enemyAI;
-        private UpgradeSystem _upgradeSystem;
-        private SpeedControl _speedControl;
+        private Texture2D _texture;
+        private Vector2 _position;
+        private int _level;
 
-        public Tower(Game1 game, Player player, EnemyAI enemyAI, UpgradeSystem upgradeSystem, SpeedControl speedControl)
+        public Tower(Game1 game)
         {
             _game = game;
-            _player = player;
-            _enemyAI = enemyAI;
-            _upgradeSystem = upgradeSystem;
-            _speedControl = speedControl;
+            _level = 1;
+        }
 
-            Texture = _game.Content.Load<Texture2D>("Images/Tower");
-            Level = 1;
+        public void LoadContent()
+        {
+            _texture = _game.Content.Load<Texture2D>("Tower");
+            _position = new Vector2(_game.GraphicsDevice.Viewport.Width / 2, _game.GraphicsDevice.Viewport.Height / 2);
         }
 
         public void Upgrade()
         {
-            if (_player.Gold >= _upgradeSystem.GetUpgradeCost(this))
-            {
-                _player.Gold -= _upgradeSystem.GetUpgradeCost(this);
-                Level++;
-            }
-        }
-
-        public void Attack()
-        {
-            if (_speedControl.GameSpeed != SpeedControl.Speed.FastForward)
-            {
-                _enemyAI.TakeDamage(Level);
-            }
+            _level++;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, Color.White);
+            spriteBatch.Draw(_texture, _position, Color.White);
         }
     }
 }
+```

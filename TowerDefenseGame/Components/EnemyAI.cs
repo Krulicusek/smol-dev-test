@@ -1,7 +1,6 @@
 ```csharp
-using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace TowerDefenseGame.Components
 {
@@ -20,18 +19,14 @@ namespace TowerDefenseGame.Components
             _speedControl = speedControl;
         }
 
-        public void Update(GameTime gameTime)
+        public void LoadContent()
         {
-            // AI logic to attack player's towers and minions
-            // AI logic to defend its own towers and minions
-            // AI logic to upgrade its own towers and minions
-            // AI logic to spawn minions
-            // AI logic to adjust game speed based on game state
+            // Load enemy AI content here
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Update(GameTime gameTime)
         {
-            // Draw AI's towers, minions, and other game elements
+            // Update enemy AI logic here
         }
     }
 }
