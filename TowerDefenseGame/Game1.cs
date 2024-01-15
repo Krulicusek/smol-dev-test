@@ -1,8 +1,8 @@
-using System;
+```csharp
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using TowerDefenseGame.Components;
+using System.Collections.Generic;
 
 namespace TowerDefenseGame
 {
@@ -14,25 +14,30 @@ namespace TowerDefenseGame
         Player player;
         EnemyAI enemyAI;
         GameMap gameMap;
-        UpgradeSystem upgradeSystem;
+        List<Tower> towers;
+        Minion minion;
         SpawnSystem spawnSystem;
+        UpgradeSystem upgradeSystem;
         SpeedControl speedControl;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+
+            player = new Player();
+            enemyAI = new EnemyAI(this, player, gameMap, speedControl);
+            gameMap = new GameMap(this, player, enemyAI);
+            towers = new List<Tower>();
+            minion = new Minion();
+            spawnSystem = new SpawnSystem(this, player, enemyAI, towers);
+            upgradeSystem = new UpgradeSystem(this, player, towers[0], minion);
+            speedControl = new SpeedControl(this);
         }
 
         protected override void Initialize()
         {
-            player = new Player();
-            enemyAI = new EnemyAI();
-            gameMap = new GameMap();
-            upgradeSystem = new UpgradeSystem();
-            spawnSystem = new SpawnSystem();
-            speedControl = new SpeedControl();
-
             base.Initialize();
         }
 
@@ -50,11 +55,9 @@ namespace TowerDefenseGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            gameMap.Update(gameTime);
             player.Update(gameTime);
             enemyAI.Update(gameTime);
-            gameMap.Update(gameTime);
-            upgradeSystem.Update(gameTime, player);
-            spawnSystem.Update(gameTime, player);
             speedControl.Update(gameTime);
 
             base.Update(gameTime);
@@ -65,12 +68,15 @@ namespace TowerDefenseGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+
             gameMap.Draw(spriteBatch);
             player.Draw(spriteBatch);
             enemyAI.Draw(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
     }
 }
+```

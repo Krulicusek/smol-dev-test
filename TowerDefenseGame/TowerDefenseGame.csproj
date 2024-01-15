@@ -3,33 +3,24 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Components\EnemyAI.cs" />
     <Compile Include="Components\GameMap.cs" />
-    <Compile Include="Components\Tower.cs" />
     <Compile Include="Components\Minion.cs" />
     <Compile Include="Components\Player.cs" />
-    <Compile Include="Components\EnemyAI.cs" />
-    <Compile Include="Components\UpgradeSystem.cs" />
     <Compile Include="Components\SpawnSystem.cs" />
     <Compile Include="Components\SpeedControl.cs" />
+    <Compile Include="Components\Tower.cs" />
+    <Compile Include="Components\UpgradeSystem.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Content\Images\*.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
   </ItemGroup>
 
 </Project>
