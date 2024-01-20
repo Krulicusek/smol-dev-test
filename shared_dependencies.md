@@ -1,23 +1,23 @@
-Shared Dependencies:
+1. "Game1.cs" and "Program.cs" share the main game loop functions such as "Initialize", "LoadContent", "Update", and "Draw".
 
-1. Game1: This is the main game class that is shared across all the components. It is used as a parameter in the constructors of SpawnSystem, EnemyAI, GameMap, UpgradeSystem, and SpeedControl.
+2. All "Content" files share the "ContentManager" class from "Game1.cs" for loading and unloading game content.
 
-2. Player: This class is shared across SpawnSystem, EnemyAI, GameMap, and UpgradeSystem. It is used as a parameter in their constructors.
+3. "Entities" files share common properties and methods such as "Position", "Texture", "Update", and "Draw". They also share the "ContentManager" for loading their respective textures.
 
-3. EnemyAI: This class is shared across SpawnSystem, GameMap, and UpgradeSystem. It is used as a parameter in their constructors.
+4. "Entities/Player.cs" shares the "Score" and "Currency" variables with "Managers/GameManager.cs", "Managers/PlayerManager.cs", and "UI/HUD.cs".
 
-4. GameMap: This class is shared across EnemyAI and UpgradeSystem. It is used as a parameter in their constructors.
+5. "Entities/Turret.cs" and "Entities/Enemy.cs" share the "Health" and "Damage" variables. They also share the "TurretFire.wav" and "EnemyDeath.wav" sounds from the "Content" folder.
 
-5. Tower: This class is shared across SpawnSystem and UpgradeSystem. It is used as a parameter in their constructors.
+6. "Managers" files share the "GameTime" variable from "Game1.cs" for updating game states. They also share the "List" of respective entities for managing them.
 
-6. Minion: This class is used as a parameter in the constructor of UpgradeSystem.
+7. "Managers/GameManager.cs" shares the "Difficulty" variable with "Managers/EnemyManager.cs" for scaling enemy waves.
 
-7. SpeedControl: This class is used as a parameter in the constructor of EnemyAI.
+8. "UI" files share the "SpriteBatch" class from "Game1.cs" for drawing UI elements. They also share the "Player" class from "Entities/Player.cs" for displaying player stats.
 
-8. LoadContent: This method is expected in GameMap, Player, and EnemyAI classes but is missing.
+9. "UI/UpgradeMenu.cs" shares the "Upgrade" function with "Entities/Turret.cs" and "Entities/Player.cs".
 
-9. Update: This method is expected in SpeedControl class but is missing. It is also called with 2 arguments in Game1 class which is not supported.
+10. "map.txt" shares the map layout schema with "Entities/Map.cs" for loading the game map.
 
-10. Draw: This method is expected in Player class but is missing.
+11. "GameEvent.cs" shares the "EventTriggered" message name with "Managers/EventManager.cs" for handling special events.
 
-11. 'Compile' items: These are shared across all the components and are included in the project file, causing a duplication error.
+12. "PowerUp.cs" shares the "PowerUp.wav" sound from the "Content" folder. It also shares the "ApplyPowerUp" function with "Entities/Player.cs" and "Managers/PowerUpManager.cs".
