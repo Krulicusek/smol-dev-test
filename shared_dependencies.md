@@ -1,23 +1,19 @@
-1. "Game1.cs" and "Program.cs" share the main game loop functions such as "Initialize", "LoadContent", "Update", and "Draw".
+1. Pygame: This is the main dependency for all the files as it is the library used for creating the game.
 
-2. All "Content" files share the "ContentManager" class from "Game1.cs" for loading and unloading game content.
+2. Game State: The state of the game (running, paused, stopped) is shared between "main.py", "game.py", and "interface.py".
 
-3. "Entities" files share common properties and methods such as "Position", "Texture", "Update", and "Draw". They also share the "ContentManager" for loading their respective textures.
+3. Tower and Enemy Objects: The "tower.py" and "enemy.py" files will export classes for creating tower and enemy objects. These objects will be used in "game.py" and "main.py".
 
-4. "Entities/Player.cs" shares the "Score" and "Currency" variables with "Managers/GameManager.cs", "Managers/PlayerManager.cs", and "UI/HUD.cs".
+4. Upgrade Objects: The "upgrade.py" file will export a class for creating upgrade objects. These objects will be used in "game.py", "main.py", and "tower.py".
 
-5. "Entities/Turret.cs" and "Entities/Enemy.cs" share the "Health" and "Damage" variables. They also share the "TurretFire.wav" and "EnemyDeath.wav" sounds from the "Content" folder.
+5. Constants: The "constants.py" file will export variables that are used across multiple files, such as the colors of the towers and enemies, the points awarded for killing an enemy, and the cost of upgrades.
 
-6. "Managers" files share the "GameTime" variable from "Game1.cs" for updating game states. They also share the "List" of respective entities for managing them.
+6. Assets: The image files in the "assets" directory will be used in "game.py" and "tower.py" to represent the towers and enemies.
 
-7. "Managers/GameManager.cs" shares the "Difficulty" variable with "Managers/EnemyManager.cs" for scaling enemy waves.
+7. Interface Elements: The "interface.py" file will export functions for creating and managing the game interface. These functions will be used in "main.py" and "game.py".
 
-8. "UI" files share the "SpriteBatch" class from "Game1.cs" for drawing UI elements. They also share the "Player" class from "Entities/Player.cs" for displaying player stats.
+8. Mouse Clicks: The handling of mouse clicks will be shared between "main.py", "game.py", and "interface.py".
 
-9. "UI/UpgradeMenu.cs" shares the "Upgrade" function with "Entities/Turret.cs" and "Entities/Player.cs".
+9. Fast Forward Mode: The state of the fast forward mode will be shared between "main.py", "game.py", and "interface.py".
 
-10. "map.txt" shares the map layout schema with "Entities/Map.cs" for loading the game map.
-
-11. "GameEvent.cs" shares the "EventTriggered" message name with "Managers/EventManager.cs" for handling special events.
-
-12. "PowerUp.cs" shares the "PowerUp.wav" sound from the "Content" folder. It also shares the "ApplyPowerUp" function with "Entities/Player.cs" and "Managers/PowerUpManager.cs".
+10. Start and Stop Game: The functions for starting and stopping the game will be shared between "main.py", "game.py", and "interface.py".
