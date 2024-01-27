@@ -1,17 +1,31 @@
-1. "bluetooth_extender.py": This file will contain the main logic for extending the Bluetooth range. Shared dependencies might include the Bluetooth library (for Python, it could be PyBluez), and the functions for establishing and managing Bluetooth connections.
+1. Dependencies:
+   - Python's built-in `socket` module for creating and managing network sockets.
+   - `bluetooth` module from PyBluez library for Bluetooth communication.
 
-2. "proxy.py": This file will handle the proxy logic. It will need to import the Bluetooth library and the functions for managing connections. It will also need to share the identifiers for the devices it is proxying between.
+2. Exported Variables:
+   - `master_address`: The Bluetooth address of the master device (computer A).
+   - `slave_address`: The Bluetooth address of the slave device (computer B).
 
-3. "device_a.py" and "device_b.py": These files will represent the two computers in the system. They will need to import the Bluetooth library and the functions for managing connections. They will also need to share the identifiers for the devices they are connected to.
+3. Data Schemas:
+   - `BluetoothDevice`: A class representing a Bluetooth device, with properties like `address`, `name`, and `is_connected`.
 
-4. "controller.py": This file will represent the controller in the system. It will need to import the Bluetooth library and the functions for managing connections. It will also need to share the identifier for the device it is connected to.
+4. Function Names:
+   - `create_socket()`: A function to create a Bluetooth socket.
+   - `connect_device()`: A function to connect to a Bluetooth device.
+   - `disconnect_device()`: A function to disconnect from a Bluetooth device.
+   - `send_data()`: A function to send data to a connected Bluetooth device.
+   - `receive_data()`: A function to receive data from a connected Bluetooth device.
+   - `start_proxy()`: A function to start the Bluetooth proxy.
+   - `stop_proxy()`: A function to stop the Bluetooth proxy.
 
-5. "launch_script.py": This file will be used to launch the entire system. It will need to import all the other files and their functions. It will also need to share the identifiers for all the devices in the system.
+5. Message Names:
+   - `CONNECTION_SUCCESS`: A message indicating a successful connection.
+   - `CONNECTION_FAILURE`: A message indicating a failed connection.
+   - `DISCONNECTION_SUCCESS`: A message indicating a successful disconnection.
+   - `DISCONNECTION_FAILURE`: A message indicating a failed disconnection.
+   - `DATA_SENT`: A message indicating that data was sent successfully.
+   - `DATA_RECEIVED`: A message indicating that data was received successfully.
+   - `PROXY_STARTED`: A message indicating that the proxy has started.
+   - `PROXY_STOPPED`: A message indicating that the proxy has stopped.
 
-Shared Dependencies:
-
-- Bluetooth Library: Used across all files for Bluetooth functionality.
-- Connection Management Functions: Used across all files for establishing and managing Bluetooth connections.
-- Device Identifiers: Used across all files to identify the devices in the system.
-- Proxy Logic: Used in "proxy.py", "device_a.py", "device_b.py", and "controller.py" to manage the proxy connection.
-- Launch Function: Used in "launch_script.py" to start the entire system.
+Note: This is a Python-based solution and does not involve any DOM elements as it's not a web-based application.
