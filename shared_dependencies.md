@@ -1,19 +1,17 @@
-1. Pygame: This is the main dependency for all the files as it is the library used for creating the game.
+1. "bluetooth_extender.py": This file will contain the main logic for extending the Bluetooth range. Shared dependencies might include the Bluetooth library (for Python, it could be PyBluez), and the functions for establishing and managing Bluetooth connections.
 
-2. Game State: The state of the game (running, paused, stopped) is shared between "main.py", "game.py", and "interface.py".
+2. "proxy.py": This file will handle the proxy logic. It will need to import the Bluetooth library and the functions for managing connections. It will also need to share the identifiers for the devices it is proxying between.
 
-3. Tower and Enemy Objects: The "tower.py" and "enemy.py" files will export classes for creating tower and enemy objects. These objects will be used in "game.py" and "main.py".
+3. "device_a.py" and "device_b.py": These files will represent the two computers in the system. They will need to import the Bluetooth library and the functions for managing connections. They will also need to share the identifiers for the devices they are connected to.
 
-4. Upgrade Objects: The "upgrade.py" file will export a class for creating upgrade objects. These objects will be used in "game.py", "main.py", and "tower.py".
+4. "controller.py": This file will represent the controller in the system. It will need to import the Bluetooth library and the functions for managing connections. It will also need to share the identifier for the device it is connected to.
 
-5. Constants: The "constants.py" file will export variables that are used across multiple files, such as the colors of the towers and enemies, the points awarded for killing an enemy, and the cost of upgrades.
+5. "launch_script.py": This file will be used to launch the entire system. It will need to import all the other files and their functions. It will also need to share the identifiers for all the devices in the system.
 
-6. Assets: The image files in the "assets" directory will be used in "game.py" and "tower.py" to represent the towers and enemies.
+Shared Dependencies:
 
-7. Interface Elements: The "interface.py" file will export functions for creating and managing the game interface. These functions will be used in "main.py" and "game.py".
-
-8. Mouse Clicks: The handling of mouse clicks will be shared between "main.py", "game.py", and "interface.py".
-
-9. Fast Forward Mode: The state of the fast forward mode will be shared between "main.py", "game.py", and "interface.py".
-
-10. Start and Stop Game: The functions for starting and stopping the game will be shared between "main.py", "game.py", and "interface.py".
+- Bluetooth Library: Used across all files for Bluetooth functionality.
+- Connection Management Functions: Used across all files for establishing and managing Bluetooth connections.
+- Device Identifiers: Used across all files to identify the devices in the system.
+- Proxy Logic: Used in "proxy.py", "device_a.py", "device_b.py", and "controller.py" to manage the proxy connection.
+- Launch Function: Used in "launch_script.py" to start the entire system.
