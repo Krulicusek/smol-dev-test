@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
-const port = 80;
+const port = process.env.PORT || 80;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -11,5 +10,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`MathGuardians: The Geometric Frontier is running on port ${port}`);
+  console.log(`Server running at http://localhost:${port}/`);
 });

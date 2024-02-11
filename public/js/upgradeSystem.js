@@ -1,58 +1,52 @@
-// upgradeSystem.js
+// public/js/upgradeSystem.js
 
-const mathFormulas = require('./mathFormulas.js');
-const defenses = require('./defenses.js');
+import { calculateCircle, calculateLine } from './mathFormulas.js';
+import { createBarrier, updateDefenses } from './defenses.js';
 
-function applyUpgrade(defenseType, upgradeType) {
-  // Assuming each defense has an 'id', 'type', and 'strength' property
-  const defense = defenses.getDefenseById(defenseType);
-  if (!defense) {
-    console.error('Defense not found');
-    return;
-  }
+const upgradePanel = document.getElementById('upgradePanel');
+const healthIndicator = document.getElementById('healthIndicator');
+const scoreBoard = document.getElementById('scoreBoard');
 
+function applyUpgrade(upgradeType) {
   switch (upgradeType) {
-    case 'increaseStrength':
-      defense.strength += 10; // Increment strength by 10
+    case 'health':
+      // Increase the health of the base
+      // This is a placeholder for the actual implementation
       break;
-    case 'expandRadius':
-      if (defense.type === 'circle') {
-        defense.radius += 5; // Increment radius by 5 for circular defenses
-      }
-      break;
-    case 'heightenWall':
-      if (defense.type === 'wall') {
-        defense.height += 5; // Increment height by 5 for wall defenses
-      }
+    case 'barrier':
+      // Upgrade barrier strength
+      // This is a placeholder for the actual implementation
       break;
     default:
-      console.error('Invalid upgrade type');
-      return;
+      console.error('Unknown upgrade type:', upgradeType);
   }
-
-  // Update the SVG representation of the defense
-  defenses.updateDefenseSVG(defense);
-  // Notify the game of the applied upgrade
-  const upgradeAppliedEvent = new CustomEvent('upgradeApplied', { detail: { defenseType, upgradeType } });
-  document.dispatchEvent(upgradeAppliedEvent);
+  // Emit an event or update the UI to reflect the applied upgrade
+  document.dispatchEvent(new CustomEvent('upgradeApplied', { detail: { upgradeType } }));
 }
 
 function unlockNewFormula(formulaType) {
-  // Assuming we have a set of predefined formulas that can be unlocked
-  const newFormula = mathFormulas.getFormulaByType(formulaType);
-  if (!newFormula) {
-    console.error('Formula type not found');
-    return;
+  let newFormula;
+  switch (formulaType) {
+    case 'circle':
+      newFormula = calculateCircle;
+      break;
+    case 'line':
+      newFormula = calculateLine;
+      break;
+    default:
+      console.error('Unknown formula type:', formulaType);
+      return;
   }
-
-  // Add the new formula to the player's arsenal
-  mathFormulas.addFormulaToPlayerArsenal(newFormula);
-  // Notify the game that a new formula has been unlocked
-  const unlockFormulaEvent = new CustomEvent('newFormulaUnlocked', { detail: { formulaType } });
-  document.dispatchEvent(unlockFormulaEvent);
+  // Add the new formula to the game's defenses
+  // This is a placeholder for the actual implementation
 }
 
-module.exports = {
-  applyUpgrade,
-  unlockNewFormula
-};
+// Event listeners for upgrade buttons
+upgradePanel.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BUTTON') {
+    const upgradeType = event.target.dataset.upgradeType;
+    applyUpgrade(upgradeType);
+  }
+});
+
+export { applyUpgrade, unlockNewFormula };
