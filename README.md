@@ -1,70 +1,58 @@
 # MathGuardians: The Geometric Frontier
 
-Welcome to "MathGuardians: The Geometric Frontier," an innovative tower defense game where mathematics and strategy intertwine to create a unique gaming experience. Your mission is to protect the circular base using the power of geometric shapes and mathematical equations.
+Welcome to "MathGuardians: The Geometric Frontier," an innovative tower defense game where mathematics and strategy collide. This game challenges players to defend their base using dynamically generated SVG graphics and mathematical formulas. No traditional game assets are used; instead, the game world is constructed in real-time using simple yet powerful SVG representations based on mathematical principles.
+
+## Getting Started
+
+To get started with "MathGuardians," you'll need to have Node.js installed on your system. Once you have Node.js, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Navigate to the game directory in your terminal.
+3. Run `npm install` to install all the necessary dependencies.
+4. Start the game server by running `npm start`.
+5. Open your web browser and go to `http://localhost:80` to start playing!
+
+## Game Features
+
+- **Dynamic Base**: Your stronghold is a circle whose health is indicated by its inner empty width.
+- **Mathematical Defenses**: Create defenses using SVG graphics and mathematical formulas.
+- **Learn as You Play**: Discover and apply new mathematical formulas to strengthen your defenses.
+- **Upgrade System**: Enhance your defenses and unlock advanced mathematical concepts.
+- **Dynamically Generated Axes**: Visual references for mathematical positioning are created in real-time.
+- **Interactive Gameplay with npm**: Manage your game development environment with npm scripts.
+- **Express Server & Hosting**: The game is hosted on an Express server listening on port 80.
+- **Strategic Challenges**: Adapt your defenses to various projectile types.
+- **Educational Element**: Integrate mathematical learning into gameplay.
+- **Visualize Mathematics**: See mathematical equations shape your defenses.
+- **Endless Creativity**: Experiment with SVG representations and mathematical formulas.
+
+## File Structure
+
+- `package.json`: Lists the project dependencies and scripts.
+- `server.js`: Sets up the Express server to serve the game.
+- `public/index.html`: The main HTML file for the game.
+- `public/css/style.css`: Contains styles for the game elements.
+- `public/js/game.js`: The main game logic.
+- `public/js/defenses.js`: Handles the creation and updating of defenses.
+- `public/js/projectiles.js`: Manages the spawning and movement of projectiles.
+- `public/js/upgradeSystem.js`: Manages the upgrade logic for defenses.
+- `public/js/axes.js`: Draws the x and y axes on the SVG canvas.
+- `public/js/mathFormulas.js`: Contains functions to calculate SVG paths for mathematical shapes.
+- `public/js/utilities.js`: Provides utility functions like collision detection.
+- `public/assets/svg/`: Contains SVG representations of game elements.
+- `.gitignore`: Specifies files to be ignored by Git.
+- `README.md`: This file, containing instructions and information about the game.
 
 ## How to Play
 
-- Protect the circular base from incoming projectiles.
-- Use mathematical formulas to construct defenses.
-- Upgrade your defenses and unlock new formulas.
-- Face strategic challenges and adapt your strategies.
-- Learn mathematical concepts while playing an engaging game.
-
-## Installation
-
-To play "MathGuardians," follow these steps:
-
-1. Ensure you have Python installed on your system.
-2. Clone the repository or download the source code.
-3. Install the required dependencies by running `pip install -r requirements.txt`.
-4. Execute `main.py` to start the game.
-
-## Features
-
-- **Dynamic Base**: Your base is a circle with health proportional to its width.
-- **Mathematical Defenses**: Create defenses using mathematical formulas.
-- **Learn as You Play**: Unlock new formulas and learn about their properties.
-- **Upgrade System**: Improve your defenses by applying upgrades.
-- **Strategic Challenges**: Adapt to various projectile types with unique behaviors.
-- **Educational Element**: Enhance your understanding of mathematics while defending your base.
-- **Visualize Mathematics**: Watch as your equations form protective barriers.
-- **Endless Creativity**: Experiment with different strategies and mathematical concepts.
-
-## Dependencies
-
-- Python 3.x
-- Pygame (for rendering and game mechanics)
-
-## Files
-
-- `main.py`: The entry point of the game.
-- `game_logic.py`: Contains the core game logic.
-- `base.py`: Manages the base's health and properties.
-- `defenses.py`: Handles the creation and management of defenses.
-- `projectiles.py`: Defines the behavior of various projectiles.
-- `math_formulas.py`: Includes mathematical formulas used for defenses.
-- `upgrade_system.py`: Manages the upgrades for defenses.
-- `challenges.py`: Contains the challenges for each level.
-- `educational_element.py`: Integrates educational content into the game.
-- `visualization.py`: Renders the visual representation of mathematical concepts.
-- `constants.py`: Defines the constants used throughout the game.
-- `utils.py`: Provides utility functions for the game.
-- `config/settings.json`: Stores the game settings.
-- `levels/`: Contains the level configurations.
-- `gui/`: Manages the graphical user interface elements.
-- `data/`: Stores player progress and other data.
-- `tests/`: Contains unit tests for the game's functionality.
+Defend your base by creating and upgrading mathematical defenses. Each level introduces new challenges and mathematical concepts. Use your strategic thinking to place defenses effectively and survive the onslaught of projectiles.
 
 ## Contributing
 
-Feel free to fork the project, create issues, and submit pull requests. Your contributions are welcome!
+Feel free to contribute to the development of "MathGuardians." If you have ideas for new features, mathematical concepts, or improvements, please send a pull request or open an issue.
 
 ## License
 
-"MathGuardians: The Geometric Frontier" is released under the MIT License. See the LICENSE file for more details.
+"MathGuardians: The Geometric Frontier" is open-source software licensed under the MIT license.
 
-## Contact
-
-For support or inquiries, please open an issue on the project's GitHub page.
-
-Enjoy defending the geometric frontier and sharpening your mathematical skills with "MathGuardians"!
+Thank you for playing "MathGuardians: The Geometric Frontier." Embrace the power of mathematics and become the ultimate guardian of the geometric frontier!
