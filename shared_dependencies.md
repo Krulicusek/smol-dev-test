@@ -1,72 +1,72 @@
 Shared Dependencies:
 
-1. **Dependencies in `package.json`:**
-   - `express`: For running the server.
-   - `nodemon`: For live-reloading the server during development (optional).
+1. **package.json**:
+   - `express`
+   - `nodemon` (optional)
 
-2. **Variables and Functions in `server.js`:**
-   - `app`: Instance of Express.
-   - `port`: Common port number, typically `80` for HTTP.
+2. **server.js**:
+   - `app`
+   - `port`
 
-3. **DOM Element IDs in `public/index.html`:**
-   - `gameContainer`: The main container for the game.
-   - `svgCanvas`: The SVG element where the game graphics are rendered.
-   - `healthIndicator`: Displays the health of the base.
-   - `scoreBoard`: Shows the player's score or level.
-   - `upgradePanel`: The section where players can upgrade defenses.
+3. **public/index.html**:
+   - `gameContainer`
+   - `svgCanvas`
+   - `healthIndicator`
+   - `scoreBoard`
+   - `upgradePanel`
 
-4. **CSS Classes in `public/css/style.css`:**
-   - `.base`: Style for the base SVG element.
-   - `.barrier`: Style for the barrier SVG elements.
-   - `.projectile`: Style for the projectile SVG elements.
-   - `.axis`: Style for the axes SVG elements.
+4. **public/css/style.css**:
+   - `.base`
+   - `.barrier`
+   - `.projectile`
+   - `.axis`
 
-5. **Functions in `public/js/game.js`:**
-   - `initializeGame`: Sets up the game environment.
-   - `gameLoop`: The main loop that runs the game.
-   - `handleCollisions`: Detects and handles collisions between projectiles and defenses.
+5. **public/js/game.js**:
+   - `initializeGame`
+   - `gameLoop`
+   - `handleCollisions`
 
-6. **Functions in `public/js/defenses.js`:**
-   - `createBarrier`: Generates a barrier using an SVG element.
-   - `updateDefenses`: Updates the state of the defenses.
+6. **public/js/defenses.js**:
+   - `createBarrier`
+   - `updateDefenses`
 
-7. **Functions in `public/js/projectiles.js`:**
-   - `spawnProjectile`: Creates a new projectile.
-   - `updateProjectiles`: Moves the projectiles and checks for collisions.
+7. **public/js/projectiles.js**:
+   - `spawnProjectile`
+   - `updateProjectiles`
 
-8. **Functions in `public/js/upgradeSystem.js`:**
-   - `applyUpgrade`: Applies an upgrade to a defense.
-   - `unlockNewFormula`: Unlocks a new mathematical formula for defenses.
+8. **public/js/upgradeSystem.js**:
+   - `applyUpgrade`
+   - `unlockNewFormula`
 
-9. **Functions in `public/js/axes.js`:**
-   - `drawAxes`: Draws the x and y axes on the SVG canvas.
+9. **public/js/axes.js**:
+   - `drawAxes`
 
-10. **Functions in `public/js/mathFormulas.js`:**
-    - `calculateCircle`: Calculates SVG path for a circle based on `x^2 + y^2 = r^2`.
-    - `calculateLine`: Calculates SVG path for a line based on equations like `y=5`.
+10. **public/js/mathFormulas.js**:
+    - `calculateCircle`
+    - `calculateLine`
 
-11. **Functions in `public/js/utilities.js`:**
-    - `convertToSVGPath`: Converts a mathematical formula to an SVG path.
-    - `detectCollision`: Utility function to detect collisions between SVG elements.
+11. **public/js/utilities.js**:
+    - `convertToSVGPath`
+    - `detectCollision`
 
-12. **SVG Assets in `public/assets/svg/`:**
-    - `base.svg`: SVG representation of the base.
-    - `barrier.svg`: SVG representation of a barrier.
-    - `wall.svg`: SVG representation of a wall.
-    - `projectiles.svg`: SVG representation of projectiles.
-    - `axes.svg`: SVG representation of the axes.
+12. **public/assets/svg/**:
+    - `base.svg`
+    - `barrier.svg`
+    - `wall.svg`
+    - `projectiles.svg`
+    - `axes.svg`
 
-13. **Message Names:**
-    - `updateHealth`: Message to update the health indicator.
-    - `scoreChange`: Message to update the score board.
-    - `upgradeApplied`: Message when an upgrade is applied.
+13. **Message Names**:
+    - `updateHealth`
+    - `scoreChange`
+    - `upgradeApplied`
 
-14. **.gitignore:**
-    - `node_modules/`: Ignores the npm dependencies directory.
-    - `.env`: Ignores environment variables file.
-    - `*.log`: Ignores log files.
+14. **.gitignore**:
+    - `node_modules/`
+    - `.env`
+    - `*.log`
 
-15. **README.md:**
-    - Contains instructions and information about the game, setup, and how to play.
+15. **README.md**:
+    - Contains game information and setup instructions.
 
-These shared dependencies will be used across multiple files to ensure consistency and functionality within the game. The JavaScript files will likely export functions and possibly some constants that are used by other scripts. The SVG files will be referenced by the JavaScript to dynamically create and manipulate game elements. The CSS file will define the styles that are applied to these elements. The server file will set up the Express server and serve the static files. The `package.json` will list the project dependencies and may include scripts for running the server and other tasks.
+Note: Ensure proper module exports and imports for JavaScript files, randomization of projectile spawning, and implementation of a basic spell system that allows for formula changes.

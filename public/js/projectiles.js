@@ -1,62 +1,68 @@
 // projectiles.js
+import { convertToSVGPath, detectCollision } from './utilities.js';
+import { updateHealth } from './game.js';
 
-class Projectile {
-  constructor(svgCanvas, x, y, velocity, angle) {
-    this.svgCanvas = svgCanvas;
-    this.x = x;
-    this.y = y;
-    this.velocity = velocity;
-    this.angle = angle;
-    this.element = null;
-  }
+const projectiles = [];
+const projectileTypes = {
+  'linear': { equation: 'y = x', svgPath: '' },
+  // Additional projectile types with their respective equations can be added here
+};
 
-  create() {
-    const projectileSVG = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    projectileSVG.setAttribute("cx", this.x);
-    projectileSVG.setAttribute("cy", this.y);
-    projectileSVG.setAttribute("r", 5); // radius of the projectile
-    projectileSVG.classList.add("projectile");
-    this.svgCanvas.appendChild(projectileSVG);
-    this.element = projectileSVG;
-  }
-
-  updatePosition(deltaTime) {
-    // Convert angle to radians for calculation
-    const angleRad = (Math.PI / 180) * this.angle;
-    // Update the x and y position based on velocity and angle
-    this.x += Math.cos(angleRad) * this.velocity * deltaTime;
-    this.y += Math.sin(angleRad) * this.velocity * deltaTime;
-    // Update the SVG element's position
-    this.element.setAttribute("cx", this.x);
-    this.element.setAttribute("cy", this.y);
-  }
-
-  isOutOfBounds(width, height) {
-    // Check if the projectile has gone out of the SVG canvas bounds
-    return this.x < 0 || this.x > width || this.y < 0 || this.y > height;
-  }
-
-  remove() {
-    // Remove the projectile from the SVG canvas
-    this.svgCanvas.removeChild(this.element);
+function initializeProjectileTypes() {
+  for (const type in projectileTypes) {
+    projectileTypes[type].svgPath = convertToSVGPath(projectileTypes[type].equation);
   }
 }
 
-function spawnProjectile(svgCanvas, x, y, velocity, angle) {
-  const projectile = new Projectile(svgCanvas, x, y, velocity, angle);
-  projectile.create();
-  return projectile;
+function spawnProjectile(type, startX, startY, velocityX, velocityY) {
+  if (!projectileTypes[type]) {
+    console.error(`Projectile type "${type}" not found.`);
+    return;
+  }
+
+  const projectile = {
+    type: type,
+    x: startX,
+    y: startY,
+    velocityX: velocityX,
+    velocityY: velocityY,
+    svgElement: document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  };
+
+  projectile.svgElement.setAttribute('d', projectileTypes[type].svgPath);
+  projectile.svgElement.classList.add('projectile');
+  document.getElementById('svgCanvas').appendChild(projectile.svgElement);
+
+  projectiles.push(projectile);
 }
 
-function updateProjectiles(projectiles, deltaTime, width, height) {
+function updateProjectiles(deltaTime) {
   projectiles.forEach((projectile, index) => {
-    projectile.updatePosition(deltaTime);
-    if (projectile.isOutOfBounds(width, height)) {
-      projectile.remove();
+    projectile.x += projectile.velocityX * deltaTime;
+    projectile.y += projectile.velocityY * deltaTime;
+
+    projectile.svgElement.setAttribute('transform', `translate(${projectile.x} ${projectile.y})`);
+
+    if (detectCollision(projectile.svgElement)) {
+      updateHealth(-1);
+      projectile.svgElement.remove();
       projectiles.splice(index, 1);
     }
   });
 }
 
-// Export the functions to be used by other modules
-export { spawnProjectile, updateProjectiles };
+function randomizeProjectileSpawn() {
+  const type = Object.keys(projectileTypes)[Math.floor(Math.random() * Object.keys(projectileTypes).length)];
+  const startX = Math.random() * window.innerWidth;
+  const startY = -50; // Start above the viewable area
+  const velocityX = (Math.random() - 0.5) * 2; // Random X velocity between -1 and 1
+  const velocityY = Math.random() + 0.5; // Random Y velocity between 0.5 and 1.5
+
+  spawnProjectile(type, startX, startY, velocityX, velocityY);
+}
+
+// Initialize projectile types on load
+initializeProjectileTypes();
+
+// Export functions for use in other modules
+export { spawnProjectile, updateProjectiles, randomizeProjectileSpawn };

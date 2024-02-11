@@ -1,15 +1,19 @@
-// Calculate the SVG path for a circle based on the equation x^2 + y^2 = r^2
+// public/js/mathFormulas.js
+
+// Function to calculate the SVG path for a circle based on the equation x^2 + y^2 = r^2
 function calculateCircle(radius) {
   // SVG circle path calculation
-  return `<circle cx="0" cy="0" r="${radius}" />`;
+  return `
+    M ${radius}, 0
+    a ${radius},${radius} 0 1,0 ${-2 * radius},0
+    a ${radius},${radius} 0 1,0 ${2 * radius},0
+  `;
 }
 
-// Calculate the SVG path for a horizontal line based on the equation y = k
-function calculateLine(yIntercept) {
-  // SVG line path calculation for a horizontal line
-  const x1 = -100; // Start point on the left side of the SVG canvas
-  const x2 = 100;  // End point on the right side of the SVG canvas
-  return `<line x1="${x1}" y1="${yIntercept}" x2="${x2}" y2="${yIntercept}" />`;
+// Function to calculate the SVG path for a horizontal line based on the equation y = k
+function calculateLine(y) {
+  // SVG line path calculation
+  return `M 0,${y} L 100,${y}`;
 }
 
 // Export the functions to be used in other scripts

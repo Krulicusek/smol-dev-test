@@ -1,16 +1,14 @@
-// Importing necessary modules and functions
+// Importing dependencies from other script files
 import { createBarrier, updateDefenses } from './defenses.js';
 import { spawnProjectile, updateProjectiles } from './projectiles.js';
 import { applyUpgrade, unlockNewFormula } from './upgradeSystem.js';
 import { drawAxes } from './axes.js';
-import { calculateCircle } from './mathFormulas.js';
-import { detectCollision } from './utilities.js';
+import { calculateCircle, calculateLine } from './mathFormulas.js';
+import { convertToSVGPath, detectCollision } from './utilities.js';
 
 // Game state variables
 let gameRunning = false;
 let requestId;
-let score = 0;
-let health = 100;
 
 // Initialize the game environment
 function initializeGame() {
@@ -21,7 +19,7 @@ function initializeGame() {
   gameLoop();
 }
 
-// Main game loop
+// The main game loop
 function gameLoop() {
   if (!gameRunning) {
     return;
@@ -30,53 +28,29 @@ function gameLoop() {
   updateProjectiles();
   updateDefenses();
   handleCollisions();
-  updateGameUI();
 
-  // Request the next frame
+  // Request the next frame of the game
   requestId = requestAnimationFrame(gameLoop);
 }
 
-// Handle collisions between projectiles and defenses
+// Detects and handles collisions between projectiles and defenses
 function handleCollisions() {
-  const projectiles = document.querySelectorAll('.projectile');
-  const barriers = document.querySelectorAll('.barrier');
+  const projectiles = document.getElementsByClassName('projectile');
+  const barriers = document.getElementsByClassName('barrier');
 
-  projectiles.forEach(projectile => {
-    barriers.forEach(barrier => {
+  for (let projectile of projectiles) {
+    for (let barrier of barriers) {
       if (detectCollision(projectile, barrier)) {
-        // Modify the health of the barrier and projectile accordingly
-        health -= 10; // Example damage value
-        projectile.remove(); // Remove the projectile from the game
-        updateHealthIndicator();
+        // Handle collision logic here
+        // Update health indicator, score, etc.
+        const healthIndicator = document.getElementById('healthIndicator');
+        const scoreBoard = document.getElementById('scoreBoard');
+        // Placeholder for updating health and score
+        healthIndicator.textContent = 'Health: X';
+        scoreBoard.textContent = 'Score: Y';
       }
-    });
-  });
-
-  if (health <= 0) {
-    endGame();
+    }
   }
-}
-
-// Update the game UI elements
-function updateGameUI() {
-  const healthIndicator = document.getElementById('healthIndicator');
-  const scoreBoard = document.getElementById('scoreBoard');
-
-  healthIndicator.textContent = `Health: ${health}`;
-  scoreBoard.textContent = `Score: ${score}`;
-}
-
-// Update the health indicator
-function updateHealthIndicator() {
-  const healthIndicator = document.getElementById('healthIndicator');
-  healthIndicator.textContent = `Health: ${health}`;
-}
-
-// End the game
-function endGame() {
-  gameRunning = false;
-  cancelAnimationFrame(requestId);
-  alert('Game Over! Your score: ' + score);
 }
 
 // Start the game when the DOM is fully loaded
@@ -84,5 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeGame();
 });
 
-// Exporting functions for potential use in other modules
-export { initializeGame, gameLoop, handleCollisions, updateGameUI, endGame };
+// Exporting functions that might be used by other scripts
+export { initializeGame, gameLoop, handleCollisions };
