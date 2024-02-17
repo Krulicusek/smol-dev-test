@@ -1,0 +1,11 @@
+<GameOverScene>
+  <GameObject name="GameOverText">
+    <Transform position="0,0,0" rotation="0,0,0" scale="1,1,1"/>
+    <TextMesh text="Game Over" fontSize="100" color="1,0,0,1"/>
+  </GameObject>
+  <GameObject name="RestartButton">
+    <Transform position="0,-200,0" rotation="0,0,0" scale="1,1,1"/>
+    <Button onClick="GameManager.RestartGame"/>
+    <TextMesh text="Restart" fontSize="50" color="1,1,1,1"/>
+  </GameObject>
+</GameOverScene>

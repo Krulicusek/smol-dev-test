@@ -1,0 +1,39 @@
+<Scene>
+  <Name>StartScene</Name>
+  <GameObject>
+    <Name>Canvas</Name>
+    <Components>
+      <Component type="RectTransform" />
+      <Component type="Canvas" renderMode="ScreenSpaceOverlay" />
+      <Component type="CanvasScaler" uiScaleMode="ScaleWithScreenSize" />
+      <Component type="GraphicRaycaster" />
+    </Components>
+    <Children>
+      <GameObject>
+        <Name>StartButton</Name>
+        <Components>
+          <Component type="RectTransform" />
+          <Component type="CanvasRenderer" />
+          <Component type="Image" sourceImage="Assets/Art/Button.png" />
+          <Component type="Button" onClick="GameManager.GameStart" />
+        </Components>
+      </GameObject>
+      <GameObject>
+        <Name>Instructions</Name>
+        <Components>
+          <Component type="RectTransform" />
+          <Component type="CanvasRenderer" />
+          <Component type="Text" text="Defend the base by creating walls using mathematical formulas. For example, y=5 creates a horizontal wall. x^2 creates a parabolic wall. Good luck!" />
+        </Components>
+      </GameObject>
+    </Children>
+  </GameObject>
+  <GameObject>
+    <Name>Background</Name>
+    <Components>
+      <Component type="RectTransform" />
+      <Component type="CanvasRenderer" />
+      <Component type="Image" sourceImage="Assets/Art/Background.png" />
+    </Components>
+  </GameObject>
+</Scene>

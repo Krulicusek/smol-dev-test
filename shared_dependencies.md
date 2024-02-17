@@ -1,72 +1,32 @@
-Shared Dependencies:
+1. Shared Variables:
+   - "baseHP" (Base's health points, equal to its width)
+   - "basePosition" (Position of the base in the grid)
+   - "projectileSpeed" (Speed of the projectiles)
+   - "wallFormula" (Mathematical formula defined by the player to create a wall)
+   - "gridSize" (Size of the grid)
+   - "axisX" and "axisY" (X and Y axes)
 
-1. **package.json**:
-   - `express`
-   - `nodemon` (optional)
+2. Data Schemas:
+   - "BaseSchema" (Schema for the base, including its position and HP)
+   - "ProjectileSchema" (Schema for the projectiles, including their speed and direction)
+   - "WallSchema" (Schema for the walls, including the mathematical formula used to create them)
 
-2. **server.js**:
-   - `app`
-   - `port`
+3. ID Names of DOM Elements:
+   - "baseElement" (DOM element for the base)
+   - "projectileElement" (DOM element for the projectiles)
+   - "wallElement" (DOM element for the walls)
+   - "gridElement" (DOM element for the grid)
+   - "axisElement" (DOM element for the axes)
 
-3. **public/index.html**:
-   - `gameContainer`
-   - `svgCanvas`
-   - `healthIndicator`
-   - `scoreBoard`
-   - `upgradePanel`
+4. Message Names:
+   - "BaseHit" (Message sent when a projectile hits the base)
+   - "WallCreated" (Message sent when a wall is created)
+   - "GameOver" (Message sent when the game is over)
+   - "GameStart" (Message sent when the game starts)
 
-4. **public/css/style.css**:
-   - `.base`
-   - `.barrier`
-   - `.projectile`
-   - `.axis`
-
-5. **public/js/game.js**:
-   - `initializeGame`
-   - `gameLoop`
-   - `handleCollisions`
-
-6. **public/js/defenses.js**:
-   - `createBarrier`
-   - `updateDefenses`
-
-7. **public/js/projectiles.js**:
-   - `spawnProjectile`
-   - `updateProjectiles`
-
-8. **public/js/upgradeSystem.js**:
-   - `applyUpgrade`
-   - `unlockNewFormula`
-
-9. **public/js/axes.js**:
-   - `drawAxes`
-
-10. **public/js/mathFormulas.js**:
-    - `calculateCircle`
-    - `calculateLine`
-
-11. **public/js/utilities.js**:
-    - `convertToSVGPath`
-    - `detectCollision`
-
-12. **public/assets/svg/**:
-    - `base.svg`
-    - `barrier.svg`
-    - `wall.svg`
-    - `projectiles.svg`
-    - `axes.svg`
-
-13. **Message Names**:
-    - `updateHealth`
-    - `scoreChange`
-    - `upgradeApplied`
-
-14. **.gitignore**:
-    - `node_modules/`
-    - `.env`
-    - `*.log`
-
-15. **README.md**:
-    - Contains game information and setup instructions.
-
-Note: Ensure proper module exports and imports for JavaScript files, randomization of projectile spawning, and implementation of a basic spell system that allows for formula changes.
+5. Function Names:
+   - "CreateWall" (Function to create a wall using a mathematical formula)
+   - "LaunchProjectile" (Function to launch a projectile)
+   - "CalculateDamage" (Function to calculate the damage to the base when hit by a projectile)
+   - "ParseFormula" (Function to parse the mathematical formula entered by the player)
+   - "UpdateGrid" (Function to update the grid and axes)
